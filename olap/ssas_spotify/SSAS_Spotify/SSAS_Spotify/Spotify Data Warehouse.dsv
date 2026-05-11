@@ -1,0 +1,251 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="d966512c-eba5-491a-ab25-8986e3142339" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Spotify Data Warehouse</ID>
+  <Name>Spotify Data Warehouse</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Spotify Data Warehouse</DataSourceID>
+  <Schema>
+    <xs:schema id="Spotify_x0020_Data_x0020_Warehouse" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="Spotify_x0020_Data_x0020_Warehouse" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="8052a963-5c40-41a9-b76e-c3cb7f9aa829">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_Fact_Daily_Ranking" msprop:DbTableName="Fact_Daily_Ranking" msprop:FriendlyName="Fact_Daily_Ranking" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="fc8b8ce1-6647-4637-aa4e-184f11369f4b">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="fact_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="fact_id" msprop:DbColumnName="fact_id" msprop:design-time-name="17138340-97f0-41d6-a6c0-8ddc08d35105" type="xs:long" />
+                  <xs:element name="song_id" msprop:FriendlyName="song_id" msprop:DbColumnName="song_id" msprop:design-time-name="226dd52f-394a-4d03-92ca-7d344e9ad46d" type="xs:int" />
+                  <xs:element name="date_id" msprop:FriendlyName="date_id" msprop:DbColumnName="date_id" msprop:design-time-name="a2067d99-e012-432c-b909-f47104c41907" type="xs:int" />
+                  <xs:element name="country_id" msprop:FriendlyName="country_id" msprop:DbColumnName="country_id" msprop:design-time-name="f825b648-1f05-4765-9eb9-93184a4f12d2" type="xs:int" />
+                  <xs:element name="daily_rank" msprop:FriendlyName="daily_rank" msprop:DbColumnName="daily_rank" msprop:design-time-name="5978cd3d-cc81-456d-af72-5b49e8a101a5" type="xs:int" />
+                  <xs:element name="daily_movement" msprop:FriendlyName="daily_movement" msprop:DbColumnName="daily_movement" msprop:design-time-name="9dd07891-5898-4a97-acc5-4f4175ed64ca" type="xs:int" />
+                  <xs:element name="weekly_movement" msprop:FriendlyName="weekly_movement" msprop:DbColumnName="weekly_movement" msprop:design-time-name="1d47f103-c374-451c-8552-e44a85d04dea" type="xs:int" />
+                  <xs:element name="popularity" msprop:FriendlyName="popularity" msprop:DbColumnName="popularity" msprop:design-time-name="37080f47-897d-451b-8dc4-a99609eb9364" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Country" msprop:DbTableName="Dim_Country" msprop:FriendlyName="Dim_Country" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="26940518-7667-487c-b972-219702c738b3">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="country_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="country_id" msprop:DbColumnName="country_id" msprop:design-time-name="85e36b75-cb4c-46ae-92a6-968fbab08353" type="xs:int" />
+                  <xs:element name="country_code" msprop:FriendlyName="country_code" msprop:DbColumnName="country_code" msprop:design-time-name="f9995e86-e2af-44cc-abec-3ef003fe18a4">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="country_name" msprop:FriendlyName="country_name" msprop:DbColumnName="country_name" msprop:design-time-name="98200040-dc70-4ecf-9560-92eef15c7530">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="region" msprop:FriendlyName="region" msprop:DbColumnName="region" msprop:design-time-name="5532c25a-93f6-4fdf-b787-7e87908042d6" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Song" msprop:DbTableName="Dim_Song" msprop:FriendlyName="Dim_Song" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="26d746fd-a183-43c2-a893-0182d5ba927f">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="song_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="song_id" msprop:DbColumnName="song_id" msprop:design-time-name="deb394f0-e9bb-4d3a-8436-306c53bdc414" type="xs:int" />
+                  <xs:element name="spotify_id" msprop:FriendlyName="spotify_id" msprop:DbColumnName="spotify_id" msprop:design-time-name="39c4cd44-be8c-4d23-8186-89bcf8bec778">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="name" msprop:FriendlyName="name" msprop:DbColumnName="name" msprop:design-time-name="d368afc2-3b6d-4b64-9520-5e106d741814">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="duration_ms" msprop:FriendlyName="duration_ms" msprop:DbColumnName="duration_ms" msprop:design-time-name="19a09c1d-84c6-4b54-965c-bb2d68b82d82" type="xs:long" />
+                  <xs:element name="is_explicit" msprop:FriendlyName="is_explicit" msprop:DbColumnName="is_explicit" msprop:design-time-name="58dc9c7d-78a6-479d-a57d-f158d210de54" type="xs:boolean" />
+                  <xs:element name="album_id" msprop:FriendlyName="album_id" msprop:DbColumnName="album_id" msprop:design-time-name="9811c4df-3f37-4f8b-8c8b-1a33ee0a3350" type="xs:int" minOccurs="0" />
+                  <xs:element name="danceability" msprop:FriendlyName="danceability" msprop:DbColumnName="danceability" msprop:design-time-name="7259e584-6f26-4ec3-9a34-8dec3c3aa25e" type="xs:double" minOccurs="0" />
+                  <xs:element name="energy" msprop:FriendlyName="energy" msprop:DbColumnName="energy" msprop:design-time-name="f50aad6e-0987-4b75-a44e-4afd0c47a242" type="xs:double" minOccurs="0" />
+                  <xs:element name="key" msprop:FriendlyName="key" msprop:DbColumnName="key" msprop:design-time-name="2d2c1d71-0682-4cb9-8cf6-2f0ab51f30ab" type="xs:int" minOccurs="0" />
+                  <xs:element name="loudness" msprop:FriendlyName="loudness" msprop:DbColumnName="loudness" msprop:design-time-name="bb802987-c08b-4e46-8d53-0397c855da1e" type="xs:double" minOccurs="0" />
+                  <xs:element name="mode" msprop:FriendlyName="mode" msprop:DbColumnName="mode" msprop:design-time-name="70c20a6f-6a54-4b15-82cc-f0afaf814ea9" type="xs:int" minOccurs="0" />
+                  <xs:element name="speechiness" msprop:FriendlyName="speechiness" msprop:DbColumnName="speechiness" msprop:design-time-name="85232d1b-c2e1-45a3-a678-e6cf070ca864" type="xs:double" minOccurs="0" />
+                  <xs:element name="acousticness" msprop:FriendlyName="acousticness" msprop:DbColumnName="acousticness" msprop:design-time-name="f6274b85-bd5b-469b-8dda-2a51b22f6e39" type="xs:double" minOccurs="0" />
+                  <xs:element name="instrumentalness" msprop:FriendlyName="instrumentalness" msprop:DbColumnName="instrumentalness" msprop:design-time-name="f1c355af-3789-4b54-81ef-11a14c72d9e3" type="xs:double" minOccurs="0" />
+                  <xs:element name="liveness" msprop:FriendlyName="liveness" msprop:DbColumnName="liveness" msprop:design-time-name="3117ddf5-24c4-43a8-b2fa-20a212abaea8" type="xs:double" minOccurs="0" />
+                  <xs:element name="valence" msprop:FriendlyName="valence" msprop:DbColumnName="valence" msprop:design-time-name="74d52486-9af5-4fbf-8ddc-429c57b57bc3" type="xs:double" minOccurs="0" />
+                  <xs:element name="tempo" msprop:FriendlyName="tempo" msprop:DbColumnName="tempo" msprop:design-time-name="40c8a378-cf69-4d78-8314-ba7f7aaa92eb" type="xs:double" minOccurs="0" />
+                  <xs:element name="time_signature" msprop:FriendlyName="time_signature" msprop:DbColumnName="time_signature" msprop:design-time-name="926b6177-46d2-41a4-abb8-f3d49f347ba8" type="xs:int" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Date" msprop:DbTableName="Dim_Date" msprop:FriendlyName="Dim_Date" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="48667d2e-10c4-4671-83e4-fec65a9f3f9d">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="date_id" msprop:FriendlyName="date_id" msprop:DbColumnName="date_id" msprop:design-time-name="664c09c3-f3c6-4302-9110-129483754c02" type="xs:int" />
+                  <xs:element name="snapshot_date" msprop:FriendlyName="snapshot_date" msprop:DbColumnName="snapshot_date" msprop:design-time-name="423248f5-c5f6-4709-945c-3c30acb8774d" type="xs:dateTime" />
+                  <xs:element name="year" msprop:FriendlyName="year" msprop:DbColumnName="year" msprop:design-time-name="08976962-6a7c-4fae-adce-33281ef02b0c" type="xs:int" />
+                  <xs:element name="month" msprop:FriendlyName="month" msprop:DbColumnName="month" msprop:design-time-name="2b2d61fa-072c-4b6b-9660-07c2049138d8" type="xs:int" />
+                  <xs:element name="day" msprop:FriendlyName="day" msprop:DbColumnName="day" msprop:design-time-name="9c7e4fe0-a489-44a5-ba6f-57367085d181" type="xs:int" />
+                  <xs:element name="quarter" msprop:FriendlyName="quarter" msprop:DbColumnName="quarter" msprop:design-time-name="c46b2c65-a0bc-4b22-809c-7e7b43dfd53b" type="xs:int" />
+                  <xs:element name="weekday" msprop:FriendlyName="weekday" msprop:DbColumnName="weekday" msprop:design-time-name="e0f9b4a8-4202-484b-96fc-cd43f6774546">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="weekday_name" msprop:FriendlyName="weekday_name" msprop:DbColumnName="weekday_name" msprop:design-time-name="ff79b06d-b947-4644-956c-568aba651be7">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="is_weekend" msprop:FriendlyName="is_weekend" msprop:DbColumnName="is_weekend" msprop:design-time-name="4c8d0e91-b2d8-4bb3-ac04-f5274c5fdeee" type="xs:boolean" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Bridge_Song_Artist" msprop:DbTableName="Bridge_Song_Artist" msprop:FriendlyName="Bridge_Song_Artist" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="f8404d54-6953-4b4b-b0db-1be994e82739">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="song_id" msprop:FriendlyName="song_id" msprop:DbColumnName="song_id" msprop:design-time-name="132a9870-0834-4ff1-8df7-24f67b1a0b77" type="xs:int" />
+                  <xs:element name="artist_id" msprop:FriendlyName="artist_id" msprop:DbColumnName="artist_id" msprop:design-time-name="800a7eb0-c6af-45fc-99ac-83edfbeebf7e" type="xs:int" />
+                  <xs:element name="artist_order" msprop:FriendlyName="artist_order" msprop:DbColumnName="artist_order" msprop:design-time-name="d5a35dbc-43ec-4989-ab28-4e705f83f458" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Album" msprop:DbTableName="Dim_Album" msprop:FriendlyName="Dim_Album" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="14e29c3e-2935-4f26-b668-0b271d03d64a">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="album_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="album_id" msprop:DbColumnName="album_id" msprop:design-time-name="a71fca51-5ef6-48a5-b1be-32c92c6a4055" type="xs:int" />
+                  <xs:element name="album_name" msprop:FriendlyName="album_name" msprop:DbColumnName="album_name" msprop:design-time-name="ccf5360e-0ae2-4f1e-9d41-62a2d87214b1">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="500" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="album_release_date" msprop:FriendlyName="album_release_date" msprop:DbColumnName="album_release_date" msprop:design-time-name="fee698de-9e94-47a3-9cb1-9da843045356" type="xs:dateTime" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_Dim_Artist" msprop:DbTableName="Dim_Artist" msprop:FriendlyName="Dim_Artist" msprop:TableType="Table" msprop:DbSchemaName="dbo" msprop:design-time-name="c1522a8a-2df5-4198-b634-c759d75e7806">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="artist_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:FriendlyName="artist_id" msprop:DbColumnName="artist_id" msprop:design-time-name="860052bb-bed3-4ee4-9625-73b9a6212164" type="xs:int" />
+                  <xs:element name="artist_name" msprop:FriendlyName="artist_name" msprop:DbColumnName="artist_name" msprop:design-time-name="1a653d17-2ea9-400e-8c7e-7f48aa5e07b1">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="300" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Fact_Daily_Ranking" />
+          <xs:field xpath="fact_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Country_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Country" />
+          <xs:field xpath="country_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Song_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Song" />
+          <xs:field xpath="song_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Date_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Date" />
+          <xs:field xpath="date_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Bridge_Song_Artist_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Bridge_Song_Artist" />
+          <xs:field xpath="song_id" />
+          <xs:field xpath="artist_id" />
+          <xs:field xpath="artist_order" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Album_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Album" />
+          <xs:field xpath="album_id" />
+        </xs:unique>
+        <xs:unique name="dbo_Dim_Artist_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_Dim_Artist" />
+          <xs:field xpath="artist_id" />
+        </xs:unique>
+        <xs:keyref name="FK__Bridge_So__artis__55009F39" refer="dbo_Dim_Artist_Constraint1">
+          <xs:selector xpath=".//dbo_Bridge_Song_Artist" />
+          <xs:field xpath="artist_id" />
+        </xs:keyref>
+        <xs:keyref name="FK__Bridge_So__song___540C7B00" refer="dbo_Dim_Song_Constraint1">
+          <xs:selector xpath=".//dbo_Bridge_Song_Artist" />
+          <xs:field xpath="song_id" />
+        </xs:keyref>
+        <xs:keyref name="FK__Dim_Song__album___51300E55" refer="dbo_Dim_Album_Constraint1">
+          <xs:selector xpath=".//dbo_Dim_Song" />
+          <xs:field xpath="album_id" />
+        </xs:keyref>
+        <xs:keyref name="FK__Fact_Dail__song___57DD0BE4" refer="dbo_Dim_Song_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Daily_Ranking" />
+          <xs:field xpath="song_id" />
+        </xs:keyref>
+        <xs:keyref name="FK__Fact_Dail__count__59C55456" refer="dbo_Dim_Country_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Daily_Ranking" />
+          <xs:field xpath="country_id" />
+        </xs:keyref>
+        <xs:keyref name="FK__Fact_Dail__date___58D1301D" refer="dbo_Dim_Date_Constraint1">
+          <xs:selector xpath=".//dbo_Fact_Daily_Ranking" />
+          <xs:field xpath="date_id" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <Spotify_x0020_Data_x0020_Warehouse xmlns="" />
+  </Schema>
+</DataSourceView>

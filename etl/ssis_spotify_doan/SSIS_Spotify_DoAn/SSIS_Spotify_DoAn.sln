@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "SSIS_Spotify_DoAn", "SSIS_Spotify_DoAn\SSIS_Spotify_DoAn.dtproj", "{24C3F23A-8833-6F76-1228-B58A4E910050}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24C3F23A-8833-6F76-1228-B58A4E910050}.Development|Default.ActiveCfg = Development
+		{24C3F23A-8833-6F76-1228-B58A4E910050}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D9CF2F1-2D13-48A3-83F0-0012A611407C}
+	EndGlobalSection
+EndGlobal

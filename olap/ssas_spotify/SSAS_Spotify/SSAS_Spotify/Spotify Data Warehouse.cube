@@ -1,0 +1,371 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="c5c818a7-9bc0-4de8-a700-e5bf3ef97e7c" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Spotify Data Warehouse</ID>
+  <Name>Spotify Data Warehouse</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="1bef85b7-62e7-4d68-a8df-e843d80eeff6">
+      <ID>Dim Date</ID>
+      <Name>Dim Date</Name>
+      <DimensionID>Dim Date</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="045f6f4a-cdcc-40c7-a1c5-345c64b5cef6">
+          <AttributeID>Date Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="88d03c8b-fc50-4243-88a0-be4f7d76c543">
+          <AttributeID>Snapshot Date</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="05a94d49-ca1a-4424-b5b0-7709816a5c36">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="05cc7351-dadc-4c0a-b8c1-34f04a74bf3c">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="74d66dd0-1fb9-40ec-8d16-0d14ab5a1b15">
+          <AttributeID>Day</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5f324710-63cb-4299-8e44-8fb69f55ffb2">
+          <AttributeID>Quarter</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c294e7ad-8956-4fab-9830-38708cebb871">
+          <AttributeID>Weekday</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1011de00-b7fe-43c7-a577-bb9fd29fbc90">
+          <AttributeID>Weekday Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3fead630-7b9c-43c6-8867-d1e8cfb38e20">
+          <AttributeID>Is Weekend</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="44aaaef4-4e5a-4e2f-94fe-7d44d6c95e02">
+      <ID>Dim Country</ID>
+      <Name>Dim Country</Name>
+      <DimensionID>Dim Country</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f16448da-a26b-4e30-b107-e8f5eea9c2a6">
+          <AttributeID>Country Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6b426847-10e4-4f5e-92cf-dd63bece78a7">
+          <AttributeID>Country Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4c3c46b7-1cd9-4e8e-bebb-8b5a7a228a17">
+          <AttributeID>Country Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c883548b-3187-47c0-8e07-ce807aeee827">
+          <AttributeID>Region</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="1be9151e-ebd4-4576-b5e7-89c97e397f8b">
+      <ID>Dim Song</ID>
+      <Name>Dim Song</Name>
+      <DimensionID>Dim Song</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="3442b342-f3c1-43f8-acbd-5af539c1c32f">
+          <AttributeID>Song Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="22368691-9767-419e-9ce1-2b30bada873b">
+          <AttributeID>Spotify Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="cc33741e-f5b1-4543-93af-78af3019a0b9">
+          <AttributeID>Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a1efda98-d054-441a-a2f7-24dbf699ee55">
+          <AttributeID>Duration Ms</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5406cfc6-ea9c-4fb5-80cf-d8a58590d30a">
+          <AttributeID>Is Explicit</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9a0bd10c-7601-46f5-be6c-a546448e61dd">
+          <AttributeID>Danceability</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2cf360c1-f70a-4c25-8ed0-69daea2b0a1c">
+          <AttributeID>Energy</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6f62a6a4-ebf7-4019-93da-0bb0eab31e03">
+          <AttributeID>Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="cd480791-cedc-4cb3-9ad6-8227ce787229">
+          <AttributeID>Loudness</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ff95f9c0-f3d3-494c-86a5-8ae242252132">
+          <AttributeID>Mode</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b537f8e9-f846-49d3-a87d-cb5c24a8fefc">
+          <AttributeID>Speechiness</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="918e175c-1ed8-4c41-8ca0-30da1e495f67">
+          <AttributeID>Acousticness</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ed2e36f8-01d6-4f5a-9bf6-c24360dfe94c">
+          <AttributeID>Instrumentalness</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ea585b45-ace3-42f7-8cff-718f00da39d4">
+          <AttributeID>Liveness</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="90fec2fa-2167-4f49-a7b5-94aea7af8ffd">
+          <AttributeID>Valence</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6ce62488-296d-490b-92e4-47e939b4d4ca">
+          <AttributeID>Tempo</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="df2173bb-c86e-4d6b-acef-e581a33ab930">
+          <AttributeID>Time Signature</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="436ec98e-f719-4891-9272-32763364bf71">
+          <AttributeID>Album Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="dd4ec429-033b-4aff-a311-b0455216eb29">
+      <ID>Dim Artist</ID>
+      <Name>Dim Artist</Name>
+      <DimensionID>Dim Artist</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="7967da57-7a59-4fe4-8755-98426928d26c">
+          <AttributeID>Artist Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b728a59f-836f-47ec-8af0-c88b3c8cf0f2">
+          <AttributeID>Artist Name</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="2df29cf4-145c-4eba-b5af-2921db230810">
+      <ID>Fact Daily Ranking</ID>
+      <Name>Fact Daily Ranking</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="84e26833-3012-420b-bf52-5baa16911591">
+          <ID>Daily Rank</ID>
+          <Name>Daily Rank</Name>
+          <Source dwd:design-time-name="6c18d0c9-b85b-4c4e-b5e6-4a60aef256f4">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="06b30a7e-b616-47c6-9cd2-399c0c3c76b9">
+              <TableID>dbo_Fact_Daily_Ranking</TableID>
+              <ColumnID>daily_rank</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="ae3ff06d-6b44-4073-9d5a-4bdb1dd69158">
+          <ID>Daily Movement</ID>
+          <Name>Daily Movement</Name>
+          <Source dwd:design-time-name="8fbdc696-573c-43aa-98c1-f11a646b2fdd">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="aae33cd3-8b34-4b7f-974d-13811218d38b">
+              <TableID>dbo_Fact_Daily_Ranking</TableID>
+              <ColumnID>daily_movement</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="75b0fb21-e5e8-461c-9dbe-7386e139b09e">
+          <ID>Weekly Movement</ID>
+          <Name>Weekly Movement</Name>
+          <Source dwd:design-time-name="45e5a54e-55cc-454b-a86f-e89149fb1745">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1a66f3bb-194d-48ea-92a0-a24521a27399">
+              <TableID>dbo_Fact_Daily_Ranking</TableID>
+              <ColumnID>weekly_movement</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="efeb9c85-7885-40ae-85d2-90717d3ae625">
+          <ID>Popularity</ID>
+          <Name>Popularity</Name>
+          <Source dwd:design-time-name="f85f9501-ddc0-46a3-9c74-e6bbac07d926">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="68568ee3-4a70-4be3-9c6c-e776418b0f8b">
+              <TableID>dbo_Fact_Daily_Ranking</TableID>
+              <ColumnID>popularity</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="f9189d55-acfe-4f01-9262-63fa57814e66">
+          <ID>Fact Daily Ranking Count</ID>
+          <Name>Fact Daily Ranking Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="ba785e78-34da-4353-8f65-1f06e00fc6d8">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="b47ce38f-00e2-4b23-8d41-08bf300dc24d">
+              <TableID>dbo_Fact_Daily_Ranking</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="3758d29b-24c3-4a3a-a7ed-dbffd280f42c">
+          <CubeDimensionID>Dim Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="32a84ddd-4b43-4ce8-bd29-f05f8d1bd1aa">
+              <AttributeID>Date Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3b144d1b-51be-4cba-98c3-45ee0b4fd747">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="36d28e53-eec8-4a7f-9b5d-01e636f88311">
+                    <TableID>dbo_Fact_Daily_Ranking</TableID>
+                    <ColumnID>date_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f30d8c1a-c76b-4596-b98e-1697276a4018">
+          <CubeDimensionID>Dim Country</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d1c7a766-b803-4a7d-b9c3-7efe41f3a5e5">
+              <AttributeID>Country Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="373c3d30-9152-46d9-a023-f01d0aeaf96f">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0ecd015f-d5cc-4f4e-a7e8-111e9137e0d7">
+                    <TableID>dbo_Fact_Daily_Ranking</TableID>
+                    <ColumnID>country_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="afbf8fc1-d66d-4b4a-a748-523f10a90c15">
+          <CubeDimensionID>Dim Song</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="936248c6-d5b8-435a-8e0c-89b78d3d18ad">
+              <AttributeID>Song Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="e911ad98-0b8d-4a5f-b699-7253c5a70900">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="90b0c1df-5c45-48ad-a7d8-78058642ed20">
+                    <TableID>dbo_Fact_Daily_Ranking</TableID>
+                    <ColumnID>song_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="ManyToManyMeasureGroupDimension" dwd:design-time-name="5af2b159-aeca-421c-a723-27358c281876">
+          <CubeDimensionID>Dim Artist</CubeDimensionID>
+          <MeasureGroupID>Bridge Song Artist</MeasureGroupID>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="422598e1-411b-4988-8a36-694413afe8bc">
+      <ID>Bridge Song Artist</ID>
+      <Name>Bridge Song Artist</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="beb464a4-dfc0-4356-87a9-fd6d27cdb2a0">
+          <ID>Bridge Song Artist Count</ID>
+          <Name>Bridge Song Artist Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="2a998f28-9c44-480f-a1cc-1e455c636c17">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="21876c09-f46f-4165-9931-28cd36167f43">
+              <TableID>dbo_Bridge_Song_Artist</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="5a20665e-6027-4a81-96fb-02fc8752b4f1">
+          <CubeDimensionID>Dim Song</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="75221b3a-0713-4317-8e3b-7c1bd7a34df3">
+              <AttributeID>Song Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0cabb0ce-1231-4b0d-a2f7-f782952e4629">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="96c25878-8f71-4491-afc7-d9e69ef61783">
+                    <TableID>dbo_Bridge_Song_Artist</TableID>
+                    <ColumnID>song_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="beb13baf-ae44-43b3-bc9e-fba7664c8dbe">
+          <CubeDimensionID>Dim Artist</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="567504ff-5e13-45be-9134-1db721e563a0">
+              <AttributeID>Artist Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="542b4288-50a6-472b-93d1-cab9b34a547a">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6de10bfb-f0aa-4b63-904d-26ebdcdc6773">
+                    <TableID>dbo_Bridge_Song_Artist</TableID>
+                    <ColumnID>artist_id</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="7d98dee1-690d-4066-bd0e-8b283d07e8b7">
+    <DataSourceViewID>Spotify Data Warehouse</DataSourceViewID>
+  </Source>
+</Cube>
