@@ -1,0 +1,88 @@
+﻿--Roll up: Tổng hợp mức độ phổ biến (Popularity) theo Khu vực (Region)
+SELECT
+    [Measures].[Popularity] ON COLUMNS,
+    [Dim Country].[Region].[Region].MEMBERS ON ROWS
+FROM [Spotify Data Warehouse]
+
+--Tổng số lượng xếp hạng (Fact Count) theo Năm
+SELECT
+    [Measures].[Fact Daily Ranking Count] ON COLUMNS,
+    [Dim Date].[Year].[Year].MEMBERS ON ROWS
+FROM [Spotify Data Warehouse]
+--Drill down: Xem danh sách Bài hát của một Nghệ sĩ cụ thể
+SELECT
+    {[Measures].[Popularity], [Measures].[Daily Rank]} ON COLUMNS,
+    NON EMPTY (
+        [Dim Song].[Name].[Name].MEMBERS
+    ) ON ROWS
+WHERE (
+    [Dim Artist].[Artist Name].&[HIEUTHUHAI]
+)
+-- Xem chi tiết xếp hạng theo Ngày của một Bài hát
+SELECT
+    {[Measures].[Daily Rank], [Measures].[Daily Movement]} ON COLUMNS,
+    NON EMPTY (
+       [Dim Date].[Snapshot Date].[Snapshot Date].MEMBERS 
+    ) ON ROWS
+FROM [Spotify Data Warehouse]
+WHERE (
+    [Dim Song].[Name].&[Exit Sign] 
+)
+--Slice - Xem Popularity của các Nghệ sĩ chỉ tại "Vietnam"
+SELECT
+    {[Measures].[Popularity]} ON COLUMNS,
+    NON EMPTY {[Dim Artist].[Artist Name].[Artist Name].MEMBERS} ON ROWS
+FROM [Spotify Data Warehouse]
+WHERE (
+    [Dim Country].[Country Name].&[Vietnam]
+)
+--Xem biến động xếp hạng (Daily Movement) vào cuối tuần
+SELECT
+    {[Measures].[Daily Movement]} ON COLUMNS,
+    {[Dim Country].[Country Name].[Country Name].MEMBERS} ON ROWS
+FROM [Spotify Data Warehouse]
+WHERE (
+    [Dim Date].[Is Weekend].&[True]
+)
+--Pivot Quốc gia và Năm
+SELECT
+    {[Dim Date].[Year].[Year].MEMBERS} ON COLUMNS,
+    NON EMPTY {[Dim Country].[Country Name].[Country Name].MEMBERS} ON ROWS
+FROM [Spotify Data Warehouse]
+WHERE ([Measures].[Popularity])
+--Pivot Nghệ sĩ và Khu vực
+SELECT
+    {[Dim Country].[Region].[Region].MEMBERS} ON COLUMNS,
+    NON EMPTY {[Dim Artist].[Artist Name].MEMBERS} ON ROWS
+FROM [Spotify Data Warehouse]
+WHERE ([Measures].[Fact Daily Ranking Count])
+--Top 5 Nghệ sĩ có độ phổ biến cao nhất
+SELECT
+    [Measures].[Popularity] ON COLUMNS,
+    NON EMPTY
+    TOPCOUNT(
+        [Dim Artist].[Artist Name].[Artist Name].MEMBERS,
+        5,
+        [Measures].[Popularity]
+    ) ON ROWS
+FROM [Spotify Data Warehouse]
+
+--CrossJoin - Kết hợp Quốc gia và Năm trên cùng một trục
+SELECT
+    {[Measures].[Daily Rank], [Measures].[Popularity]} ON COLUMNS,
+    NON EMPTY CROSSJOIN(
+        [Dim Country].[Country Name].MEMBERS,
+        [Dim Date].[Year].MEMBERS
+    ) ON ROWS
+FROM [Spotify Data Warehouse]
+--Dice: Bài hát Explitcit tại Việt Nam năm 2025
+SELECT
+    {[Measures].[Popularity], [Measures].[Daily Rank]} ON COLUMNS,
+    NON EMPTY [Dim Song].[Name].[Name].MEMBERS ON ROWS
+FROM [Spotify Data Warehouse]
+WHERE (
+    [Dim Song].[Is Explicit].&[TRUE],          -- điều kiện 1
+    [Dim Country].[Country Name].&[Vietnam],   -- điều kiện 2
+    [Dim Date].[Year].&[2025]                  -- điều kiện 3
+)
+
