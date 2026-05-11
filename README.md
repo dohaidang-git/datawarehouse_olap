@@ -15,20 +15,29 @@ The system integrates ETL processes, multidimensional modeling, and visualizatio
 
 ### 🏗️ Project Architecture
 
-- 📦 data-warehouse-olap/
-- ├── 📁 ETL/
-- │ └── SSIS_Packages/
-- ├── 📁 Database/
-- │ ├── DDL_Scripts.sql
-- │ ├── FactTables/
-- │ └── DimensionTables/
-- ├── 📁 OLAP/
-- │ └── SSAS_Cubes/
-- ├── 📁 Reports/
-- │ └── PowerBI_Dashboards/
-- ├── 📁 Docs/
-- │ └── Data_Model_Diagram.png
-- └── README.md
+```text
+datawarehouse_olap/
+├── data/
+│   └── raw/
+│       └── spotify_2025_9regions_separate_artists.csv
+├── sql/
+│   ├── schema/
+│   │   └── create_spotify_datawarehouse.sql
+│   └── mdx/
+│       └── spotify_olap_queries.mdx
+├── etl/
+│   └── ssis_spotify_doan/
+├── olap/
+│   └── ssas_spotify/
+├── bi/
+│   └── powerbi/
+│       └── spotify_datawarehouse_report.pbix
+├── docs/
+│   ├── notes/
+│   └── screenshots/
+├── README.md
+└── RUN_PROJECT.md
+```
 
 ### ⚙️ Tools & Technologies
 - **Microsoft SQL Server** – Data warehouse storage  
@@ -39,11 +48,13 @@ The system integrates ETL processes, multidimensional modeling, and visualizatio
 - **ER/Studio / draw.io** – Data modeling  
 
 ### 🚀 How to Run
-1. Restore or execute the SQL scripts from the `Database/` folder.  
-2. Open `ETL/SSIS_Packages` in **Visual Studio (Integration Services Project)**.  
+1. Execute the schema script in `sql/schema/`.  
+2. Open the SSIS solution in `etl/ssis_spotify_doan/` with **Visual Studio**.  
 3. Execute ETL packages to load data into the warehouse.  
-4. Deploy **OLAP cubes** from the `SSAS_Cubes` folder.  
-5. Connect **Power BI** to the cube or SQL Server for visualization.
+4. Deploy the SSAS project from `olap/ssas_spotify/`.  
+5. Open the Power BI report in `bi/powerbi/`.
+
+Detailed local run instructions: see `RUN_PROJECT.md`.
 
 ### 📈 Example Output
 - Star Schema diagram (Fact & Dimension tables)  
@@ -74,11 +85,13 @@ Hệ thống bao gồm quá trình ETL, mô hình dữ liệu đa chiều và tr
 - **draw.io / ERD Tools** – Thiết kế mô hình dữ liệu  
 
 ### 🚀 Cách chạy dự án
-1. Chạy các script SQL trong thư mục `Database/` để tạo cấu trúc kho dữ liệu.  
-2. Mở các gói SSIS trong `ETL/SSIS_Packages` bằng **Visual Studio**.  
-3. Thực thi các gói ETL để nạp dữ liệu.  
-4. Triển khai **OLAP Cubes** trong thư mục `SSAS_Cubes`.  
-5. Kết nối **Power BI** với kho dữ liệu hoặc cube để tạo báo cáo.  
+1. Chạy script tạo schema trong `sql/schema/`.  
+2. Mở solution SSIS trong `etl/ssis_spotify_doan/` bằng **Visual Studio**.  
+3. Thực thi ETL để nạp dữ liệu vào kho dữ liệu.  
+4. Triển khai project SSAS trong `olap/ssas_spotify/`.  
+5. Mở báo cáo Power BI trong `bi/powerbi/`.  
+
+Hướng dẫn chạy chi tiết ở file `RUN_PROJECT.md`.
 
 ### 📈 Kết quả đầu ra
 - Sơ đồ **Star Schema** (gồm bảng Fact và Dimension).  

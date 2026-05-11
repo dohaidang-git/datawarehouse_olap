@@ -239,6 +239,13 @@ _pkginfo.txt
 *.appxbundle
 *.appxupload
 
+# Project-local artifacts that should not be pushed
+*.zip
+*.mdf
+/OLAP.docx
+/Excel_Pivot.xlsx
+/.~lock*
+
 # Visual Studio cache files
 # files ending in .cache can be ignored
 *.[Cc]ache
