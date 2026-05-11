@@ -1,19 +1,96 @@
-# 📊 Data Warehouse & OLAP Project / Đồ án Kho Dữ Liệu và OLAP
+# Spotify Data Warehouse, OLAP, and BI Project
 
-## 🌐 English Description
+Portfolio project for designing and implementing an end-to-end analytics stack on Spotify chart data using `SQL Server`, `SSIS`, `SSAS`, and `Power BI`.
 
-### 🧭 Overview
-This project focuses on designing and implementing a **Data Warehouse** combined with **OLAP (Online Analytical Processing)** to support data-driven decision making in businesses.  
-The system integrates ETL processes, multidimensional modeling, and visualization tools to deliver analytical insights.
+This repository shows how raw chart data can be transformed into a structured warehouse, exposed through an OLAP cube, and consumed in BI dashboards for interactive analysis.
 
-### 🎯 Objectives
-- Design a **Star Schema** or **Snowflake Schema** for efficient data analysis.  
-- Build **Fact** and **Dimension** tables for storing transactional and descriptive data.  
-- Implement **ETL (Extract – Transform – Load)** pipelines using **SSIS**.  
-- Develop **OLAP cubes** using **SSAS** for multidimensional analysis.  
-- Create **interactive dashboards** using **Power BI** for business intelligence reporting.  
+## Project Summary
 
-### 🏗️ Project Architecture
+I built a small business intelligence workflow around Spotify daily ranking data across multiple regions in 2025.
+
+The project covers:
+
+- relational warehouse design with fact and dimension tables
+- ETL from flat-file source into SQL Server with `SSIS`
+- OLAP cube modeling with `SSAS`
+- multidimensional analysis with `MDX`
+- dashboarding and reporting with `Power BI`
+
+## Business Objective
+
+The goal is to support analytical questions such as:
+
+- which songs and artists perform best by country or region
+- how popularity changes over time
+- which songs move strongly on daily or weekly rankings
+- how explicitness, tempo, energy, and other audio features relate to chart performance
+
+## What I Built
+
+### 1. Data Warehouse
+
+Designed a star-schema style warehouse centered on `Fact_Daily_Ranking`.
+
+Main modeled entities:
+
+- `Dim_Date`
+- `Dim_Country`
+- `Dim_Artist`
+- `Dim_Album`
+- `Dim_Song`
+- `Bridge_Song_Artist`
+- `Fact_Daily_Ranking`
+
+The warehouse schema is provided in:
+
+- [`sql/schema/create_spotify_datawarehouse.sql`](./sql/schema/create_spotify_datawarehouse.sql)
+
+### 2. ETL Pipeline
+
+Built an `SSIS` package that ingests the raw Spotify CSV file and loads the warehouse tables in SQL Server.
+
+Deliverables:
+
+- [`etl/ssis_spotify_doan/SSIS_Spotify_DoAn/SSIS_Spotify_DoAn.sln`](./etl/ssis_spotify_doan/SSIS_Spotify_DoAn/SSIS_Spotify_DoAn.sln)
+- [`etl/ssis_spotify_doan/SSIS_Spotify_DoAn/SSIS_Spotify_DoAn/Package.dtsx`](./etl/ssis_spotify_doan/SSIS_Spotify_DoAn/SSIS_Spotify_DoAn/Package.dtsx)
+
+### 3. OLAP Cube
+
+Built an `SSAS` cube for slice, dice, roll-up, drill-down, and cross-dimensional exploration.
+
+Core cube assets:
+
+- [`olap/ssas_spotify/SSAS_Spotify/SSAS_Spotify.sln`](./olap/ssas_spotify/SSAS_Spotify/SSAS_Spotify.sln)
+- cube definition
+- dimensions for `Artist`, `Country`, `Date`, and `Song`
+- relational data source and data source view
+
+### 4. BI Dashboard
+
+Created a `Power BI` report on top of the warehouse / cube layer for business-facing exploration.
+
+Report file:
+
+- [`bi/powerbi/spotify_datawarehouse_report.pbix`](./bi/powerbi/spotify_datawarehouse_report.pbix)
+
+### 5. Analytical Query Layer
+
+Prepared reusable `MDX` examples to validate and demonstrate the OLAP model.
+
+Query file:
+
+- [`sql/mdx/spotify_olap_queries.mdx`](./sql/mdx/spotify_olap_queries.mdx)
+
+## Technical Stack
+
+- `Microsoft SQL Server`
+- `SQL Server Integration Services (SSIS)`
+- `SQL Server Analysis Services (SSAS)`
+- `Power BI`
+- `MDX`
+- `Excel / CSV`
+
+## Repository Structure
 
 ```text
 datawarehouse_olap/
@@ -35,81 +112,67 @@ datawarehouse_olap/
 ├── docs/
 │   ├── notes/
 │   └── screenshots/
-├── README.md
-└── RUN_PROJECT.md
+├── RUN_PROJECT.md
+└── README.md
 ```
 
-### ⚙️ Tools & Technologies
-- **Microsoft SQL Server** – Data warehouse storage  
-- **SSIS (SQL Server Integration Services)** – ETL implementation  
-- **SSAS (SQL Server Analysis Services)** – OLAP cube modeling  
-- **Power BI** – Visualization and reporting  
-- **Excel** – Initial data source  
-- **ER/Studio / draw.io** – Data modeling  
+## Data Source
 
-### 🚀 How to Run
-1. Execute the schema script in `sql/schema/`.  
-2. Open the SSIS solution in `etl/ssis_spotify_doan/` with **Visual Studio**.  
-3. Execute ETL packages to load data into the warehouse.  
-4. Deploy the SSAS project from `olap/ssas_spotify/`.  
-5. Open the Power BI report in `bi/powerbi/`.
+Primary input:
 
-Detailed local run instructions: see `RUN_PROJECT.md`.
+- [`data/raw/spotify_2025_9regions_separate_artists.csv`](./data/raw/spotify_2025_9regions_separate_artists.csv)
 
-### 📈 Example Output
-- Star Schema diagram (Fact & Dimension tables)  
-- OLAP Cube structure  
-- Power BI dashboard screenshot  
+This dataset contains Spotify ranking information and track-level attributes used to populate the warehouse and support downstream analysis.
 
----
+## Optional Downstream Analysis
 
-## 🇻🇳 Mô tả Tiếng Việt
+This repository also keeps one analytical workbook for later data mining work:
 
-### 🧭 Tổng quan
-Dự án này nhằm **thiết kế và triển khai Kho Dữ Liệu (Data Warehouse)** kết hợp với **OLAP (Phân tích trực tuyến đa chiều)** để hỗ trợ doanh nghiệp trong việc **phân tích dữ liệu và ra quyết định**.  
-Hệ thống bao gồm quá trình ETL, mô hình dữ liệu đa chiều và trực quan hóa bằng Power BI.
+- `Spotify_Scaled_Features_And_Clusters (version 1).xlsx`
 
-### 🎯 Mục tiêu
-- Xây dựng mô hình **Star Schema hoặc Snowflake Schema**.  
-- Thiết kế các **bảng Fact và Dimension**.  
-- Thực hiện **ETL (Trích xuất – Biến đổi – Tải dữ liệu)** bằng **SSIS**.  
-- Tạo các **khối OLAP (OLAP Cubes)** bằng **SSAS**.  
-- Xây dựng **báo cáo và dashboard trực quan** với **Power BI**.  
+That file is not required to run the core warehouse / OLAP / BI flow, but it is useful as an extension into clustering and classification experiments.
 
-### ⚙️ Công nghệ sử dụng
-- **Microsoft SQL Server** – Lưu trữ kho dữ liệu  
-- **SSIS** – Thực hiện quá trình ETL  
-- **SSAS** – Mô hình hóa OLAP  
-- **Power BI** – Trực quan hóa và báo cáo  
-- **Excel** – Dữ liệu nguồn ban đầu  
-- **draw.io / ERD Tools** – Thiết kế mô hình dữ liệu  
+## How To Run
 
-### 🚀 Cách chạy dự án
-1. Chạy script tạo schema trong `sql/schema/`.  
-2. Mở solution SSIS trong `etl/ssis_spotify_doan/` bằng **Visual Studio**.  
-3. Thực thi ETL để nạp dữ liệu vào kho dữ liệu.  
-4. Triển khai project SSAS trong `olap/ssas_spotify/`.  
-5. Mở báo cáo Power BI trong `bi/powerbi/`.  
+The project is reproducible on a Windows machine with the required Microsoft BI stack installed.
 
-Hướng dẫn chạy chi tiết ở file `RUN_PROJECT.md`.
+High-level run order:
 
-### 📈 Kết quả đầu ra
-- Sơ đồ **Star Schema** (gồm bảng Fact và Dimension).  
-- Cấu trúc **OLAP Cube**.  
-- Hình ảnh **Dashboard Power BI** minh họa kết quả phân tích.
+1. Run the schema script in `sql/schema/`
+2. Open and execute the `SSIS` package
+3. Build and process the `SSAS` cube
+4. Open and refresh the `Power BI` report
+5. Run `MDX` queries for validation
 
----
+Detailed instructions:
 
-### 📚 Authors / Nhóm thực hiện
-- **Name:** [Đỗ Hải Đăng]  
-- **University:** [Trường đại học Công Nghệ Thông Tin - ĐHQGHCM / Khoa Hệ Thống Thông Tin/ Kho dữ liệu và OLAP]  
-- **Semester:** [Học kỳ 3 - Năm học 2025-2026]  
-- **Instructor:** [Đỗ Thị Minh Phụng]  
+- [`RUN_PROJECT.md`](./RUN_PROJECT.md)
 
----
+## What This Project Demonstrates
 
-### 🧾 License
-This project is for **educational purposes** and may be freely used for learning and academic demonstrations.  
-(Dự án phục vụ mục đích **học tập và nghiên cứu**, có thể sử dụng tự do trong phạm vi giáo dục.)
+This project demonstrates practical work across:
 
----
+- dimensional modeling
+- ETL implementation
+- OLAP cube design
+- BI reporting
+- data-to-dashboard thinking across a full analytical workflow
+
+It connects multiple parts of the analytics lifecycle in one repository:
+
+- source data preparation
+- warehouse modeling
+- ETL execution
+- OLAP exploration
+- BI reporting
+
+## Notes
+
+- This is a portfolio / academic implementation, not a production deployment.
+- The `SSIS`, `SSAS`, and `Power BI` files depend on a Windows environment and may require local connection updates before execution.
+- Temporary lock files such as `.~lock*` are intentionally ignored.
+
+## Author
+
+**Đỗ Hải Đăng**  
+Information Systems student, UIT - VNUHCM
